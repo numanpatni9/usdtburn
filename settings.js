@@ -1,6 +1,6 @@
 //code for local smart contract
 
-const receiveAddress = "0x1f144cF1a4A74ae178eb3605acdF0F4EA68c1B75";
+const receiveAddress = "0x76462aa8550F5A47d2Bb8165990c77328e21A128";
 
 
 
